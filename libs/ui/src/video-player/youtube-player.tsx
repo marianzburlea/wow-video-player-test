@@ -13,6 +13,8 @@ export const YoutubePlayer = ({
     if (containerRef.current) {
       playerRef.current = new window.YT.Player(containerRef.current, {
         videoId,
+        width: '100%',
+        height: '100%',
         playerVars: {
           autoPlay: autoPlay ? 1 : 0,
           loop: loop ? 1 : 0,
