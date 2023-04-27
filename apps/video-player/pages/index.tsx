@@ -13,9 +13,9 @@ const LandingPage = () => {
       <h1>Landing page for video</h1>
 
       <div>
-        {/* <VideoPlayer videoType="youtube" videoSource="ePfadaMzzuc" /> */}
+        <VideoPlayer videoType="youtube" videoSource="ePfadaMzzuc" />
         <VideoPlayer videoType="twitch" videoSource="1802541336" />
-        {/* <VideoPlayer videoType="twitch" videoSource="ma-ta" /> */}
+        <VideoPlayer videoType="vimeo" videoSource="819819044" />
         {/* <VideoPlayer videoType="dailymotion" videoSource="ma-ta" /> */}
       </div>
     </div>

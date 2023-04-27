@@ -6,14 +6,14 @@ export const TwitchPlayer = ({ videoId, autoPlay }: TGeneralVideoPlayer) => {
   const playerRef = useRef<any>(null)
 
   const createPlayer = useCallback(() => {
-    console.log('twitch mumu 2')
-    if (!containerRef.current) return
-
-    if (typeof playerRef.current?.getCurrentTime === 'undefined') {
+    if (
+      containerRef.current &&
+      typeof playerRef.current?.getCurrentTime === 'undefined'
+    ) {
       playerRef.current = new window.Twitch.Player(containerRef.current, {
         width: '100%',
         height: '100%',
-        autoplay: autoPlay,
+        autoplay: autoPlay ? true : false,
         control: false,
         video: videoId,
       })
@@ -28,7 +28,7 @@ export const TwitchPlayer = ({ videoId, autoPlay }: TGeneralVideoPlayer) => {
 
   return (
     <div>
-      <div id={`twitch-player-${videoId}`} ref={containerRef}></div>
+      <div id={`twitch-player-${videoId}`} ref={containerRef} />
     </div>
   )
 }

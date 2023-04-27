@@ -3,6 +3,7 @@ import type { TVideoPlayer } from './video-player.type'
 import { loadSDK } from '@wowjob/util'
 import { YoutubePlayer } from './youtube-player'
 import { TwitchPlayer } from './twitch-player'
+import { VimeoPlayer } from './vimeo-player'
 
 export const VideoPlayer = ({ videoSource, videoType }: TVideoPlayer) => {
   const [sdkLoaded, setSdkLoaded] = useState<boolean>(false)
@@ -22,7 +23,7 @@ export const VideoPlayer = ({ videoSource, videoType }: TVideoPlayer) => {
         return <YoutubePlayer videoId={videoSource} />
 
       case 'vimeo':
-        return <div>to be or not to be</div>
+        return <VimeoPlayer videoId={videoSource} />
 
       case 'twitch':
         return <TwitchPlayer videoId={videoSource} />
