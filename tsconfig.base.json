@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@wowjob/type": ["libs/type/src/index.ts"],
-      "@wowjob/ui": ["libs/ui/src/index.ts"]
+      "@wowjob/ui": ["libs/ui/src/index.ts"],
+      "@wowjob/util": ["libs/util/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
