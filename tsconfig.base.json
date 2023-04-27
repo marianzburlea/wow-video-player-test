@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@wowjob/type": ["libs/type/src/index.ts"]
+      "@wowjob/type": ["libs/type/src/index.ts"],
+      "@wowjob/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
