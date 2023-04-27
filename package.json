@@ -2,13 +2,13 @@
   "name": "wow-video-player-test",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
-  },
+  "scripts": {},
   "private": true,
   "dependencies": {
+    "@nrwl/next": "^15.9.3"
   },
   "devDependencies": {
-    "nx": "15.9.3",
-    "@nrwl/workspace": "15.9.3"
+    "@nrwl/workspace": "15.9.3",
+    "nx": "15.9.3"
   }
 }
