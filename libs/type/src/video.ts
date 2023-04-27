@@ -3,6 +3,6 @@ export const platformList = [
   'vimeo',
   'twitch',
   'dailymotion',
-] as const;
+] as const
 
-export type TVideoType = (typeof platformList)[number];
+export type TVideoType = (typeof platformList)[number]
