@@ -36,7 +36,7 @@ export const loadSDK = (videoType: TVideoType): Promise<void> => {
       case 'twitch':
         if (!window.Twitch) {
           const script = document.createElement('script')
-          script.src = 'http://player.twitch.tv/js/embed/v1.js'
+          script.src = 'https://player.twitch.tv/js/embed/v1.js'
           script.onload = () => resolve()
           document.body.appendChild(script)
         } else {

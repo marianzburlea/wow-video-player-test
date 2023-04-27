@@ -18,7 +18,7 @@ export const TwitchPlayer = ({ videoId, autoPlay }: TGeneralVideoPlayer) => {
         video: videoId,
       })
     }
-  }, [videoId])
+  }, [videoId, autoPlay])
 
   useEffect(() => {
     if (window.Twitch?.Player) {
