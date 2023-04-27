@@ -20,7 +20,7 @@ export const loadSDK = (videoType: TVideoType): Promise<void> =>
       } else if (videoType === 'vimeo' && !window.Vimeo) {
         scriptElement.src = 'https://player.vimeo.com/api/player.js'
       } else if (videoType === 'twitch' && !window.Twitch) {
-        scriptElement.src = 'http://player.twitch.tv/js/embed/v1.js'
+        scriptElement.src = 'https://player.twitch.tv/js/embed/v1.js'
       } else if (videoType === 'dailymotion' && !window.DM) {
         scriptElement.src = 'https://api.dmcdn.net/all.js'
       }
