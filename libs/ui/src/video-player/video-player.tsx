@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { TVideoPlayer } from './video-player.type'
 import { loadSDK } from '@wowjob/util'
+import { YoutubePlayer } from './youtube-player'
 
 export const VideoPlayer = ({ videoSource, videoType }: TVideoPlayer) => {
   const [sdkLoaded, setSdkLoaded] = useState<boolean>(false)
@@ -17,7 +18,7 @@ export const VideoPlayer = ({ videoSource, videoType }: TVideoPlayer) => {
   if (sdkLoaded) {
     switch (videoType) {
       case 'youtube':
-        return <div>youtube player</div>
+        return <YoutubePlayer videoId={videoSource} />
 
       case 'vimeo':
         return <div>vimeo player</div>
