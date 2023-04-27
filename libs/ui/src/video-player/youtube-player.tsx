@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react'
 import type { TGeneralVideoPlayer } from './video-player.type'
+import { Aspect } from '../aspect'
 
 export const YoutubePlayer = ({
   videoId,
@@ -37,8 +38,8 @@ export const YoutubePlayer = ({
   }, [createPlayer])
 
   return (
-    <div data-testid="mumu">
+    <Aspect aspect="16/9">
       <div id={`video-player-${videoId}`} ref={containerRef} />
-    </div>
+    </Aspect>
   )
 }

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react'
 import type { TGeneralVideoPlayer } from './video-player.type'
+import { Aspect } from '../aspect'
 
 export const TwitchPlayer = ({ videoId, autoPlay }: TGeneralVideoPlayer) => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -27,8 +28,8 @@ export const TwitchPlayer = ({ videoId, autoPlay }: TGeneralVideoPlayer) => {
   }, [createPlayer])
 
   return (
-    <div>
+    <Aspect aspect="16/9">
       <div id={`twitch-player-${videoId}`} ref={containerRef} />
-    </div>
+    </Aspect>
   )
 }

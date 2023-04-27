@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { TGeneralVideoPlayer } from './video-player.type'
+import { Aspect } from '../aspect'
 
 export const DailymotionPlayer = ({
   videoId,
@@ -32,8 +33,8 @@ export const DailymotionPlayer = ({
   }, [createPlayer])
 
   return (
-    <div>
+    <Aspect aspect="16/9">
       <div id={`dailymotion-player-${videoId}`} ref={containerRef} />
-    </div>
+    </Aspect>
   )
 }
