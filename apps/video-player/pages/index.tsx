@@ -16,7 +16,7 @@ const LandingPage = () => {
         <VideoPlayer videoType="youtube" videoSource="ePfadaMzzuc" />
         <VideoPlayer videoType="twitch" videoSource="1802541336" />
         <VideoPlayer videoType="vimeo" videoSource="819819044" />
-        {/* <VideoPlayer videoType="dailymotion" videoSource="ma-ta" /> */}
+        <VideoPlayer videoType="dailymotion" videoSource="x7pvoe9" />
       </div>
     </div>
   ) : null

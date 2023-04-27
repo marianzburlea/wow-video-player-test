@@ -4,6 +4,7 @@ import { loadSDK } from '@wowjob/util'
 import { YoutubePlayer } from './youtube-player'
 import { TwitchPlayer } from './twitch-player'
 import { VimeoPlayer } from './vimeo-player'
+import { DailymotionPlayer } from './dailymotion-player'
 
 export const VideoPlayer = ({ videoSource, videoType }: TVideoPlayer) => {
   const [sdkLoaded, setSdkLoaded] = useState<boolean>(false)
@@ -29,7 +30,7 @@ export const VideoPlayer = ({ videoSource, videoType }: TVideoPlayer) => {
         return <TwitchPlayer videoId={videoSource} />
 
       case 'dailymotion':
-        return <div>dailymotion player</div>
+        return <DailymotionPlayer videoId={videoSource} />
 
       default:
         return null
