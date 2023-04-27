@@ -10,24 +10,52 @@ declare global {
   }
 }
 
-export const loadSDK = (videoType: TVideoType): Promise<void> =>
-  new Promise((resolve) => {
-    if (platformList.includes(videoType)) {
-      const scriptElement = document.createElement('script')
-
-      if (videoType === 'youtube' && !window.YT) {
-        scriptElement.src = 'https://www.youtube.com/iframe_api'
-      } else if (videoType === 'vimeo' && !window.Vimeo) {
-        scriptElement.src = 'https://player.vimeo.com/api/player.js'
-      } else if (videoType === 'twitch' && !window.Twitch) {
-        scriptElement.src = 'https://player.twitch.tv/js/embed/v1.js'
-      } else if (videoType === 'dailymotion' && !window.DM) {
-        scriptElement.src = 'https://api.dmcdn.net/all.js'
-      }
-
-      scriptElement.onload = () => resolve()
-      document.body.appendChild(scriptElement)
+export const loadSDK = (videoType: TVideoType): Promise<void> => {
+  return new Promise((resolve) => {
+    switch (videoType) {
+      case 'youtube':
+        if (!window.YT) {
+          const script = document.createElement('script')
+          script.src = 'https://www.youtube.com/iframe_api'
+          script.onload = () => resolve()
+          document.body.appendChild(script)
+        } else {
+          resolve()
+        }
+        break
+      case 'vimeo':
+        if (!window.Vimeo) {
+          const script = document.createElement('script')
+          script.src = 'https://player.vimeo.com/api/player.js'
+          script.onload = () => resolve()
+          document.body.appendChild(script)
+        } else {
+          resolve()
+        }
+        break
+      case 'twitch':
+        if (!window.Twitch) {
+          const script = document.createElement('script')
+          script.src = 'http://player.twitch.tv/js/embed/v1.js'
+          script.onload = () => resolve()
+          document.body.appendChild(script)
+        } else {
+          resolve()
+        }
+        break
+      case 'dailymotion':
+        if (!window.DM) {
+          const script = document.createElement('script')
+          script.src = 'https://api.dmcdn.net/all.js'
+          script.onload = () => resolve()
+          document.body.appendChild(script)
+        } else {
+          resolve()
+        }
+        break
+      default:
+        resolve()
+        break
     }
-
-    resolve()
   })
+}
