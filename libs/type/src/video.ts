@@ -6,3 +6,9 @@ export const platformList = [
 ] as const
 
 export type TVideoType = (typeof platformList)[number]
+
+export type TVideoPlayer = {
+  videoType: TVideoType
+  videoSource: string
+  docid?: string
+}

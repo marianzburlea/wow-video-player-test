@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import type { TVideoPlayer } from './video-player.type'
 import { loadSDK } from '@wowjob/util'
 import { YoutubePlayer } from './youtube-player'
 import { TwitchPlayer } from './twitch-player'
 import { VimeoPlayer } from './vimeo-player'
 import { DailymotionPlayer } from './dailymotion-player'
+import type { TVideoPlayer } from '@wowjob/type'
 
 export const VideoPlayer = ({ videoSource, videoType }: TVideoPlayer) => {
   const [sdkLoaded, setSdkLoaded] = useState<boolean>(false)
