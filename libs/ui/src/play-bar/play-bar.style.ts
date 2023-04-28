@@ -5,5 +5,6 @@ export const SPlayBar = styled.div`
   gap: 0.25rem;
   padding: 0.5rem;
   border: 1px solid gray;
-  border-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 `
