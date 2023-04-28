@@ -1,6 +1,8 @@
-import type { ChangeEvent, MouseEvent } from 'react'
+import type { ChangeEvent, MouseEvent, KeyboardEvent } from 'react'
 
-type clickType = (e: MouseEvent<HTMLButtonElement>) => void
+type clickType = (
+  e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>
+) => void
 type changeType = (e: ChangeEvent<HTMLInputElement>) => void
 
 export type TPlayBar = {

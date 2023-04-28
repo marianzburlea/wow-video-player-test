@@ -1,12 +1,14 @@
 import type { TButtonType, TIconType } from '@wowjob/type'
-import type { MouseEvent, ReactNode } from 'react'
+import type { KeyboardEvent, MouseEvent, ReactNode } from 'react'
 
 type disabled = boolean
 
 export type TButton = {
   children?: ReactNode
   disabled?: disabled
-  click?: (e: MouseEvent<HTMLButtonElement>) => void
+  click?: (
+    e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>
+  ) => void
   type?: TButtonType
   label?: string
   name?: string

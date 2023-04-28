@@ -17,13 +17,18 @@ export const PlayBar = ({
 }: TPlayBar) => {
   return (
     <SPlayBar>
-      {!isPlaying && <Button icon="play" click={playVideo} />}
-      {isPlaying && <Button icon="pause" click={pauseVideo} />}
+      <Button
+        label={`click to ${isPlaying ? 'pause' : 'play'} video`}
+        icon={isPlaying ? 'pause' : 'play'}
+        click={isPlaying ? pauseVideo : playVideo}
+      />
+      {/* {isPlaying && <Button label='click to pause video' icon="pause" click={pauseVideo} />} */}
 
       <input
         type="range"
         min={0}
         max={duration}
+        aria-label="use"
         value={progress}
         onChange={handleProgress}
         readOnly
@@ -32,8 +37,11 @@ export const PlayBar = ({
         }}
       />
 
-      {!soundOff && <Button icon="volume" click={muteVideo} />}
-      {soundOff && <Button icon="mute" click={unMuteVideo} />}
+      <Button
+        label={`click to ${soundOff ? 'unmute' : 'mute'} video`}
+        icon={soundOff ? 'mute' : 'volume'}
+        click={soundOff ? unMuteVideo : muteVideo}
+      />
     </SPlayBar>
   )
 }

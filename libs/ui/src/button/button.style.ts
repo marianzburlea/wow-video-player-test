@@ -32,6 +32,10 @@ export const SButton = styled.button<$TButton>`
     animation: ${swing} 0.5s linear;
   }
 
+  &:focus {
+    outline: 0.25rem solid lightblue;
+  }
+
   display: flex;
   justify-content: center;
   align-items: center;
