@@ -45,7 +45,18 @@ By further refining the responsive web design, the application would provide a s
 
 ## Run locally
 
+Install dependencies using `yarn` or `npm i`
+
 In your console type `nx serve video-player` and press <kbd>Enter</kbd>
+
+If you do not have **NX** or **yarn** installed, you can run:
+
+`npx nx serve video-player`
+
+or install `nx` and/or `yarn` globally:
+
+`npm i -g nx`
+`npm i -g yarn`
 
 [⇧ Back to Table of Contents ⇧](#table-of-contents)
 
