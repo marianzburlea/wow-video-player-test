@@ -1,7 +1,17 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useReducer, useRef } from 'react'
+import type { ChangeEvent } from 'react'
 import { TGeneralVideoPlayer } from './video-player.type'
 import { Aspect } from '../aspect'
 import { PlayBar } from '../play-bar/play-bar'
+import { initialValueMap, videoReducer } from './video-wrapper.reducer'
+import {
+  muteVideoAction,
+  pauseVideoAction,
+  playVideoAction,
+  setVideoProgressAction,
+  setVideoVolumeAction,
+  unmuteVideoAction,
+} from './video-wrapper.action'
 
 export const DailymotionPlayer = ({
   videoId,
@@ -10,6 +20,11 @@ export const DailymotionPlayer = ({
 }: TGeneralVideoPlayer) => {
   const playerRef = useRef<any>(null)
   const containerRef = useRef<HTMLDivElement>(null)
+  const [{ duration, isPlaying, progress, soundOff, volume }, set] = useReducer(
+    videoReducer,
+    initialValueMap
+  )
+
   const createPlayer = useCallback(() => {
     if (!containerRef.current) return
 
@@ -33,8 +48,51 @@ export const DailymotionPlayer = ({
     }
   }, [createPlayer])
 
+  const updateProgress = async () => {
+    const progress = await playerRef.current?.currentTime
+    const duration = await playerRef.current?.duration
+    set(setVideoProgressAction({ progress, duration }))
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      updateProgress()
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   const playVideo = () => {
-    console.log('playVideo()')
+    playerRef.current?.play()
+    set(playVideoAction())
+  }
+
+  const pauseVideo = () => {
+    playerRef.current?.pause()
+    set(pauseVideoAction())
+  }
+
+  const muteVideo = () => {
+    playerRef.current?.setVolume(0)
+    set(muteVideoAction())
+  }
+
+  const unMuteVideo = () => {
+    playerRef.current?.setVolume((volume || 100) / 100)
+    set(unmuteVideoAction())
+  }
+
+  const handleVolume = (e: ChangeEvent<HTMLInputElement>) => {
+    const volume = +e.target.value
+    set(setVideoVolumeAction({ volume }))
+    playerRef.current?.setVolume(volume / 100)
+    console.log(Object.keys(playerRef.current))
+  }
+
+  const handleProgress = (e: ChangeEvent<HTMLInputElement>) => {
+    const progress = +e.target.value
+    playerRef.current?.seek(progress)
+    set(setVideoProgressAction({ progress }))
   }
 
   return (
@@ -45,7 +103,19 @@ export const DailymotionPlayer = ({
         </Aspect>
       </div>
 
-      <PlayBar playVideo={playVideo} />
+      <PlayBar
+        playVideo={playVideo}
+        pauseVideo={pauseVideo}
+        unMuteVideo={unMuteVideo}
+        muteVideo={muteVideo}
+        handleVolume={handleVolume}
+        handleProgress={handleProgress}
+        duration={duration}
+        isPlaying={isPlaying}
+        progress={progress}
+        soundOff={soundOff}
+        volume={volume}
+      />
     </div>
   )
 }
