@@ -1,3 +1,5 @@
 export { Aspect } from './aspect'
+export { Global } from './global'
 export { Grid } from './grid'
+export { Icon } from './icon'
 export { VideoPlayer } from './video-player'

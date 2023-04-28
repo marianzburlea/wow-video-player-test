@@ -1,5 +1,6 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
+import { Global } from '@wowjob/ui'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
 
 const CustomApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -9,10 +10,11 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
       </Head>
 
       <main>
+        <Global />
         <Component {...pageProps} />
       </main>
     </>
-  );
-};
+  )
+}
 
-export default CustomApp;
+export default CustomApp
