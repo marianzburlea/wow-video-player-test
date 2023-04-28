@@ -6,6 +6,17 @@ export const SAspect = styled.div<$TAspect>`
   width: 100%;
   height: 100%;
   display: grid;
+  position: relative;
 
   ${getAspect}
+
+  & div {
+    position: absolute;
+    inset: 0;
+  }
+
+  & iframe {
+    position: absolute;
+    inset: 0;
+  }
 `

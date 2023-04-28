@@ -1,5 +1,7 @@
 // data
-export { platformList } from './video';
+export { gapMap } from './gap'
+export { platformList } from './video'
 
 // type
-export type { TVideoType } from './video';
+export type { TGapType } from './gap'
+export type { TVideoType } from './video'

@@ -18,6 +18,8 @@ export const VimeoPlayer = ({
       autoplay: autoPlay,
       loop: loop,
       controls: false,
+      width: 1280,
+      height: 720,
       responsive: true,
     })
   }, [videoId, autoPlay, loop])
