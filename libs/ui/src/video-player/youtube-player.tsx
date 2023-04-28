@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import type { TGeneralVideoPlayer } from './video-player.type'
 import { Aspect } from '../aspect'
+import { PlayBar } from '../play-bar/play-bar'
 
 export const YoutubePlayer = ({
   videoId,
@@ -37,9 +38,19 @@ export const YoutubePlayer = ({
     }
   }, [createPlayer])
 
+  const handlePlay = () => {
+    console.log('handlePlay()')
+  }
+
   return (
-    <Aspect aspect="16/9">
-      <div id={`video-player-${videoId}`} ref={containerRef} />
-    </Aspect>
+    <div>
+      <div>
+        <Aspect aspect="16/9">
+          <div id={`youtube-player-${videoId}`} ref={containerRef} />
+        </Aspect>
+      </div>
+
+      <PlayBar handlePlay={handlePlay} />
+    </div>
   )
 }

@@ -1,4 +1,5 @@
 export { Aspect } from './aspect'
+export { Button } from './button'
 export { Global } from './global'
 export { Grid } from './grid'
 export { Icon } from './icon'

@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { TGeneralVideoPlayer } from './video-player.type'
 import { Aspect } from '../aspect'
+import { Button } from '../button'
+import { PlayBar } from '../play-bar/play-bar'
 
 export const VimeoPlayer = ({
   videoId,
@@ -30,9 +32,19 @@ export const VimeoPlayer = ({
     }
   }, [createPlayer])
 
+  const handlePlay = () => {
+    console.log('handlePlay()')
+  }
+
   return (
-    <Aspect aspect="16/9">
-      <div id={`vimeo-player-${videoId}`} ref={containerRef} />
-    </Aspect>
+    <div>
+      <div>
+        <Aspect aspect="16/9">
+          <div id={`vimeo-player-${videoId}`} ref={containerRef} />
+        </Aspect>
+      </div>
+
+      <PlayBar handlePlay={handlePlay} />
+    </div>
   )
 }
