@@ -79,6 +79,8 @@ To get started with styled-components in your React application, visit the offic
 
 ![Wow Video Player](./resource/dep-graph.png)
 
+![Wow Video Player](./resource/unit-testing.png)
+
 Benefits of using Nx for building apps with React, Vue, Angular, Express, VanillaJS and more
 
 1. **Monorepo setup**: Nx enables you to manage multiple projects in a single repository, making it easy to share code and resources among your different apps and libraries.
