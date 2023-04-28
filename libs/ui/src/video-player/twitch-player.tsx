@@ -28,8 +28,8 @@ export const TwitchPlayer = ({ videoId, autoPlay }: TGeneralVideoPlayer) => {
     }
   }, [createPlayer])
 
-  const handlePlay = () => {
-    console.log('handlePlay()')
+  const playVideo = () => {
+    console.log('playVideo()')
   }
 
   return (
@@ -40,7 +40,7 @@ export const TwitchPlayer = ({ videoId, autoPlay }: TGeneralVideoPlayer) => {
         </Aspect>
       </div>
 
-      <PlayBar handlePlay={handlePlay} />
+      <PlayBar playVideo={playVideo} />
     </div>
   )
 }

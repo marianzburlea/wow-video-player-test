@@ -32,8 +32,8 @@ export const VimeoPlayer = ({
     }
   }, [createPlayer])
 
-  const handlePlay = () => {
-    console.log('handlePlay()')
+  const playVideo = () => {
+    console.log('playVideo()')
   }
 
   return (
@@ -44,7 +44,7 @@ export const VimeoPlayer = ({
         </Aspect>
       </div>
 
-      <PlayBar handlePlay={handlePlay} />
+      <PlayBar playVideo={playVideo} />
     </div>
   )
 }

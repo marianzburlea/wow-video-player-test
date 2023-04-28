@@ -33,8 +33,8 @@ export const DailymotionPlayer = ({
     }
   }, [createPlayer])
 
-  const handlePlay = () => {
-    console.log('handlePlay()')
+  const playVideo = () => {
+    console.log('playVideo()')
   }
 
   return (
@@ -45,7 +45,7 @@ export const DailymotionPlayer = ({
         </Aspect>
       </div>
 
-      <PlayBar handlePlay={handlePlay} />
+      <PlayBar playVideo={playVideo} />
     </div>
   )
 }
